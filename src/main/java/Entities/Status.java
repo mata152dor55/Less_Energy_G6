@@ -3,14 +3,14 @@ package Entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "State")
-public class State {
+@Table(name = "Status")
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idState;
+    private int idStatus;
 
     @Column(name = "nameState", length = 20, nullable = false)
-    private String nameState;
+    private String nameStatus;
 
     @Column(name = "description", length = 20, nullable = true)
     private String description;
@@ -19,7 +19,9 @@ public class State {
     @JoinColumn(name = "idUser")
     private User user;
 
-    public State(){
-
+    public Status(){
     }
+
+
+
 }
