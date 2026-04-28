@@ -40,7 +40,7 @@ public class Context {
     @Column (name = "deleteDateTime", nullable = true)
     private LocalDateTime deleteDateTime;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "idRecord")
     private ChatbotRecord record;
 

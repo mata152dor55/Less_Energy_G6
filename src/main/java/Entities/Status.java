@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idStatus;
+    private char idStatus;
 
     @Column(name = "nameState", length = 20, nullable = false)
     private String nameStatus;
@@ -21,7 +21,5 @@ public class Status {
 
     public Status(){
     }
-
-
 
 }

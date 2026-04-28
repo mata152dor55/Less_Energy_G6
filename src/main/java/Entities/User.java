@@ -35,6 +35,10 @@ public class User {
     @Column(name = "userDelete", nullable = false)
     private LocalDate userDelete;
 
+    @OneToMany
+    @JoinColumn (name = "idStatus")
+    private Status status;
+
     public User(){
 
     }

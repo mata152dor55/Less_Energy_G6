@@ -34,4 +34,76 @@ public class Device {
 
     @Column(name = "dateDelete", nullable = false)
     private LocalDate dateDelete;
+
+    public int getIdDevice() {
+        return idDevice;
+    }
+
+    public void setIdDevice(int idDevice) {
+        this.idDevice = idDevice;
+    }
+
+    public String getNameDevice() {
+        return nameDevice;
+    }
+
+    public void setNameDevice(String nameDevice) {
+        this.nameDevice = nameDevice;
+    }
+
+    public Character getState() {
+        return State;
+    }
+
+    public void setState(Character state) {
+        State = state;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public LocalDate getDateModification() {
+        return dateModification;
+    }
+
+    public void setDateModification(LocalDate dateModification) {
+        this.dateModification = dateModification;
+    }
+
+    public LocalDate getUserCreation() {
+        return userCreation;
+    }
+
+    public void setUserCreation(LocalDate userCreation) {
+        this.userCreation = userCreation;
+    }
+
+    public LocalDate getUserModification() {
+        return userModification;
+    }
+
+    public void setUserModification(LocalDate userModification) {
+        this.userModification = userModification;
+    }
+
+    public LocalDate getDateDelete() {
+        return dateDelete;
+    }
+
+    public void setDateDelete(LocalDate dateDelete) {
+        this.dateDelete = dateDelete;
+    }
 }
