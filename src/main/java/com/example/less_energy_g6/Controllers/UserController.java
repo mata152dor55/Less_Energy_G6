@@ -19,14 +19,14 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @PostMapping("/web")
+    @PostMapping("/RegistrarUsuario")
     public ResponseEntity<?> registrar(@RequestBody InsertUserDTO dto){
 
         if (dto.getEmail() == null ) {
             return ResponseEntity.badRequest()
                     .body("El Email no puede ser nulo");
         }
-        if (!(dto.getPassword() == null)) {
+        if (dto.getPassword() == null) {
             return ResponseEntity.badRequest()
                     .body("La contrasseña no puede ser nula");
         }

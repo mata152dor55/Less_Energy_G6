@@ -15,9 +15,6 @@ public class Status {
     @Column(name = "description", length = 20, nullable = true)
     private String description;
 
-    @OneToMany
-    @JoinColumn(name = "idUser")
-    private User user;
 
     public Status(){
     }
