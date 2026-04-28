@@ -1,21 +1,19 @@
-package Entities;
+package com.example.less_energy_g6.Entities;
+
 
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "VoiceComamnd")
-public class VoiceCommand {
+@Table(name = "ChatbotRecord")
+public class ChatbotRecord {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int idVoiceCommand;
+    private int idRecord;
 
-    @Column (name ="transcription", length = 255, nullable = false)
-    private String transcription;
-
-    @Column (name = "performedAction", length = 100, nullable = false)
-    private String performedAction;
+    @Column (name = "contentRecord", nullable = false)
+    private String contentRecord;
 
     @Column (name = "createdDateTime", nullable = false)
     private LocalDateTime createdDateTime;
@@ -33,36 +31,28 @@ public class VoiceCommand {
     private LocalDateTime deleteDateTime;
 
     @ManyToOne
-    @JoinColumn (name = "idUser")
+    @JoinColumn(name = "idUser")
     private User user;
 
     @ManyToOne
-    @JoinColumn (name = "idStatus")
+    @JoinColumn(name = "idStatus")
     private Status status;
 
 
-    public int getIdVoiceCommand() {
-        return idVoiceCommand;
+    public int getIdRecord() {
+        return idRecord;
     }
 
-    public void setIdVoiceCommand(int idVoiceCommand) {
-        this.idVoiceCommand = idVoiceCommand;
+    public void setIdRecord(int idRecord) {
+        this.idRecord = idRecord;
     }
 
-    public String getTranscription() {
-        return transcription;
+    public String getContentRecord() {
+        return contentRecord;
     }
 
-    public void setTranscription(String transcription) {
-        this.transcription = transcription;
-    }
-
-    public String getPerformedAction() {
-        return performedAction;
-    }
-
-    public void setPerformedAction(String performedAction) {
-        this.performedAction = performedAction;
+    public void setContentRecord(String contentRecord) {
+        this.contentRecord = contentRecord;
     }
 
     public LocalDateTime getCreatedDateTime() {

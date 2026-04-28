@@ -1,4 +1,4 @@
-package Entities;
+package com.example.less_energy_g6.Entities;
 
 import jakarta.persistence.*;
 
@@ -17,8 +17,8 @@ public class User {
     @Column(name = "passwordHash", length = 225, nullable = false)
     private String passwordHash;
 
-    @Column(name = "Email", length = 150, nullable = false)
-    private String Email;
+    @Column(name = "email", length = 150, nullable = false)
+    private String email;
 
     @Column(name = "dateCreation", nullable = false)
     private LocalDate dateCreation;
@@ -35,9 +35,17 @@ public class User {
     @Column(name = "userDelete", nullable = false)
     private LocalDate userDelete;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn (name = "idStatus")
     private Status status;
+
+    @ManyToOne
+    @JoinColumn (name = "idRole")
+    private Role role;
+
+    @ManyToOne
+    @JoinColumn (name = "idCountry")
+    private Country country;
 
     public User(){
 
@@ -47,7 +55,7 @@ public class User {
         this.idUser = idUser;
         this.nameUser = nameUser;
         this.passwordHash = passwordHash;
-        this.Email = email;
+        this.email = email;
         this.dateCreation = dateCreation;
         this.dateModification = dateModification;
         this.userCreation = userCreation;
@@ -80,11 +88,11 @@ public class User {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        email = email;
     }
 
     public LocalDate getDateCreation() {

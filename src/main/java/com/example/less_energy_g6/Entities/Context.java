@@ -1,8 +1,7 @@
-package Entities;
+package com.example.less_energy_g6.Entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity

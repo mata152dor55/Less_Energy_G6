@@ -1,4 +1,4 @@
-package Entities;
+package com.example.less_energy_g6.Entities;
 
 import jakarta.persistence.*;
 
@@ -6,20 +6,26 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "Measurement")
-public class Measurement {
+@Table(name = "AlertConfig")
+public class AlertConfig {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int idMeasurement;
+    private int idAlertConfig;
 
-    @Column (name = "voltage", precision =  6, scale = 2, nullable = false)
-    private BigDecimal voltage;
+    @Column (name = "alertType", length = 50, nullable = false)
+    private String alertType;
 
-    @Column (name = "current", precision = 6, scale = 2, nullable = false)
-    private BigDecimal current;
+    @Column (name = "valueTreshold", precision = 10, scale = 2)
+    private BigDecimal valueTreshold;
 
-    @Column (name = "activePower", precision = 8, scale = 2, nullable = false)
-    private BigDecimal activePower;
+    @Column (name = "notifyPush", nullable = false)
+    private Boolean notifyPush;
+
+    @Column (name = "notifyEmail", nullable = false)
+    private Boolean notifyEmail;
+
+    @Column (name = "minuteFrequency", nullable = false)
+    private int minuteFrequency;
 
     @Column (name = "createdDateTime", nullable = false)
     private LocalDateTime createdDateTime;
@@ -44,37 +50,52 @@ public class Measurement {
     @JoinColumn (name = "idUserDevice")
     private UserDevice userDevice;
 
-
-    public int getIdMeasurement() {
-        return idMeasurement;
+    public int getIdAlertConfig() {
+        return idAlertConfig;
     }
 
-    public void setIdMeasurement(int idMeasurement) {
-        this.idMeasurement = idMeasurement;
+    public void setIdAlertConfig(int idAlertConfig) {
+        this.idAlertConfig = idAlertConfig;
     }
 
-    public BigDecimal getVoltage() {
-        return voltage;
+    public String getAlertType() {
+        return alertType;
     }
 
-    public void setVoltage(BigDecimal voltage) {
-        this.voltage = voltage;
+    public void setAlertType(String alertType) {
+        this.alertType = alertType;
     }
 
-    public BigDecimal getCurrent() {
-        return current;
+    public BigDecimal getValueTreshold() {
+        return valueTreshold;
     }
 
-    public void setCurrent(BigDecimal current) {
-        this.current = current;
+    public void setValueTreshold(BigDecimal valueTreshold) {
+        this.valueTreshold = valueTreshold;
     }
 
-    public BigDecimal getActivePower() {
-        return activePower;
+    public Boolean getNotifyPush() {
+        return notifyPush;
     }
 
-    public void setActivePower(BigDecimal activePower) {
-        this.activePower = activePower;
+    public void setNotifyPush(Boolean notifyPush) {
+        this.notifyPush = notifyPush;
+    }
+
+    public Boolean getNotifyEmail() {
+        return notifyEmail;
+    }
+
+    public void setNotifyEmail(Boolean notifyEmail) {
+        this.notifyEmail = notifyEmail;
+    }
+
+    public int getMinuteFrequency() {
+        return minuteFrequency;
+    }
+
+    public void setMinuteFrequency(int minuteFrequency) {
+        this.minuteFrequency = minuteFrequency;
     }
 
     public LocalDateTime getCreatedDateTime() {

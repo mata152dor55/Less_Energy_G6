@@ -1,21 +1,19 @@
-package Entities;
+package com.example.less_energy_g6.Entities;
 
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
-@Table(name = "ChatbotRecord")
-public class ChatbotRecord {
+@Table(name = "UserDevice")
+public class UserDevice {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int idRecord;
+    private int idUserDevice;
 
-    @Column (name = "contentRecord", nullable = false)
-    private String contentRecord;
+    @Column (name = "deviceAlias", length = 150, nullable = false)
+    private String deviceAlias;
 
     @Column (name = "createdDateTime", nullable = false)
     private LocalDateTime createdDateTime;
@@ -40,21 +38,24 @@ public class ChatbotRecord {
     @JoinColumn(name = "idStatus")
     private Status status;
 
+    @ManyToOne
+    @JoinColumn(name = "idDevice")
+    private Device device;
 
-    public int getIdRecord() {
-        return idRecord;
+    public int getIdUserDevice() {
+        return idUserDevice;
     }
 
-    public void setIdRecord(int idRecord) {
-        this.idRecord = idRecord;
+    public void setIdUserDevice(int idUserDevice) {
+        this.idUserDevice = idUserDevice;
     }
 
-    public String getContentRecord() {
-        return contentRecord;
+    public String getDeviceAlias() {
+        return deviceAlias;
     }
 
-    public void setContentRecord(String contentRecord) {
-        this.contentRecord = contentRecord;
+    public void setDeviceAlias(String deviceAlias) {
+        this.deviceAlias = deviceAlias;
     }
 
     public LocalDateTime getCreatedDateTime() {
@@ -111,5 +112,13 @@ public class ChatbotRecord {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Device getDevice() {
+        return device;
+    }
+
+    public void setDevice(Device device) {
+        this.device = device;
     }
 }

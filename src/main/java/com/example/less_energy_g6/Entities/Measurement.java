@@ -1,19 +1,25 @@
-package Entities;
-
+package com.example.less_energy_g6.Entities;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "UserDevice")
-public class UserDevice {
+@Table (name = "Measurement")
+public class Measurement {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int idUserDevice;
+    private int idMeasurement;
 
-    @Column (name = "deviceAlias", length = 150, nullable = false)
-    private String deviceAlias;
+    @Column (name = "voltage", precision =  6, scale = 2, nullable = false)
+    private BigDecimal voltage;
+
+    @Column (name = "current", precision = 6, scale = 2, nullable = false)
+    private BigDecimal current;
+
+    @Column (name = "activePower", precision = 8, scale = 2, nullable = false)
+    private BigDecimal activePower;
 
     @Column (name = "createdDateTime", nullable = false)
     private LocalDateTime createdDateTime;
@@ -31,31 +37,44 @@ public class UserDevice {
     private LocalDateTime deleteDateTime;
 
     @ManyToOne
-    @JoinColumn(name = "idUser")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "idStatus")
+    @JoinColumn (name = "idStatus")
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "idDevice")
-    private Device device;
+    @JoinColumn (name = "idUserDevice")
+    private UserDevice userDevice;
 
-    public int getIdUserDevice() {
-        return idUserDevice;
+
+    public int getIdMeasurement() {
+        return idMeasurement;
     }
 
-    public void setIdUserDevice(int idUserDevice) {
-        this.idUserDevice = idUserDevice;
+    public void setIdMeasurement(int idMeasurement) {
+        this.idMeasurement = idMeasurement;
     }
 
-    public String getDeviceAlias() {
-        return deviceAlias;
+    public BigDecimal getVoltage() {
+        return voltage;
     }
 
-    public void setDeviceAlias(String deviceAlias) {
-        this.deviceAlias = deviceAlias;
+    public void setVoltage(BigDecimal voltage) {
+        this.voltage = voltage;
+    }
+
+    public BigDecimal getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(BigDecimal current) {
+        this.current = current;
+    }
+
+    public BigDecimal getActivePower() {
+        return activePower;
+    }
+
+    public void setActivePower(BigDecimal activePower) {
+        this.activePower = activePower;
     }
 
     public LocalDateTime getCreatedDateTime() {
@@ -98,14 +117,6 @@ public class UserDevice {
         this.deleteDateTime = deleteDateTime;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Status getStatus() {
         return status;
     }
@@ -114,11 +125,11 @@ public class UserDevice {
         this.status = status;
     }
 
-    public Device getDevice() {
-        return device;
+    public UserDevice getUserDevice() {
+        return userDevice;
     }
 
-    public void setDevice(Device device) {
-        this.device = device;
+    public void setUserDevice(UserDevice userDevice) {
+        this.userDevice = userDevice;
     }
 }

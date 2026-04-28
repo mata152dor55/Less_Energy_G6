@@ -1,4 +1,4 @@
-package Entities;
+package com.example.less_energy_g6.Entities;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
