@@ -35,8 +35,6 @@ public class User {
     @Column(name = "dateDelete", nullable = true)
     private LocalDateTime dateDelete;
 
-    @Column(name = "enabled", nullable = false)
-    private boolean enabled = true;
 
     @ManyToOne
     @JoinColumn (name = "idStatus")
@@ -136,14 +134,6 @@ public class User {
 
     public void setDateDelete(LocalDateTime dateDelete) {
         this.dateDelete = dateDelete;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
     }
 
     public Country getCountry() {

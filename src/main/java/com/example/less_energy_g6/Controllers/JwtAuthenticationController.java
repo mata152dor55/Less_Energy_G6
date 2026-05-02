@@ -38,12 +38,19 @@ public class JwtAuthenticationController {
     private void authenticate(String username, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+            System.out.println("✅ AUTENTICACIÓN EXITOSA EN EL MANAGER");
         } catch (DisabledException e) {
+            System.out.println("❌ ERROR: Usuario deshabilitado");
             throw new Exception("USER_DISABLED", e);
         } catch (BadCredentialsException e) {
+            System.out.println("❌ ERROR: Credenciales inválidas (Contraseña incorrecta)");
             throw new Exception("INVALID_CREDENTIALS", e);
+        } catch (Exception e) {
+            // 🚨 AQUÍ CAERÁ EL ERROR OCULTO 🚨
+            System.out.println("💥 ERROR SECRETO DESCUBIERTO: " + e.getClass().getSimpleName());
+            System.out.println("💥 MENSAJE: " + e.getMessage());
+            e.printStackTrace();
+            throw new Exception("ERROR_DESCONOCIDO", e);
         }
-
-
     }
 }
