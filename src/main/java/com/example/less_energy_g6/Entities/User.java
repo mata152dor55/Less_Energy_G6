@@ -2,10 +2,10 @@ package com.example.less_energy_g6.Entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "User")
+@Table(name = "Users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +21,10 @@ public class User {
     private String email;
 
     @Column(name = "dateCreation", nullable = false)
-    private LocalDate dateCreation;
+    private LocalDateTime dateCreation;
 
-    @Column(name = "dateModification", nullable = false)
-    private LocalDate dateModification;
+    @Column(name = "dateModification")
+    private LocalDateTime dateModification;
 
     @Column(name = "userCreation", nullable = false)
     private int userCreation;
@@ -32,8 +32,11 @@ public class User {
     @Column(name = "userModification", nullable = false)
     private int userModification;
 
-    @Column(name = "userDelete", nullable = false)
-    private LocalDate userDelete;
+    @Column(name = "dateDelete", nullable = true)
+    private LocalDateTime dateDelete;
+
+    @Column(name = "enabled", nullable = false)
+    private boolean enabled = true;
 
     @ManyToOne
     @JoinColumn (name = "idStatus")
@@ -51,7 +54,7 @@ public class User {
 
     }
 
-    public User(int idUser, String nameUser, String passwordHash, String email, LocalDate dateCreation, LocalDate dateModification, int userCreation, int userModification, LocalDate userDelete) {
+    public User(int idUser, String nameUser, String passwordHash, String email, LocalDateTime dateCreation, LocalDateTime dateModification, int userCreation, int userModification, LocalDateTime dateDelete) {
         this.idUser = idUser;
         this.nameUser = nameUser;
         this.passwordHash = passwordHash;
@@ -60,7 +63,7 @@ public class User {
         this.dateModification = dateModification;
         this.userCreation = userCreation;
         this.userModification = userModification;
-        this.userDelete = userDelete;
+        this.dateDelete = dateDelete;
     }
 
     public int getIdUser() {
@@ -92,22 +95,22 @@ public class User {
     }
 
     public void setEmail(String email) {
-        email = email;
+        this.email = email;
     }
 
-    public LocalDate getDateCreation() {
+    public LocalDateTime getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(LocalDate dateCreation) {
+    public void setDateCreation(LocalDateTime dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    public LocalDate getDateModification() {
+    public LocalDateTime getDateModification() {
         return dateModification;
     }
 
-    public void setDateModification(LocalDate dateModification) {
+    public void setDateModification(LocalDateTime dateModification) {
         this.dateModification = dateModification;
     }
 
@@ -127,11 +130,43 @@ public class User {
         this.userModification = userModification;
     }
 
-    public LocalDate getUserDelete() {
-        return userDelete;
+    public LocalDateTime getDateDelete() {
+        return dateDelete;
     }
 
-    public void setUserDelete(LocalDate userDelete) {
-        this.userDelete = userDelete;
+    public void setDateDelete(LocalDateTime dateDelete) {
+        this.dateDelete = dateDelete;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

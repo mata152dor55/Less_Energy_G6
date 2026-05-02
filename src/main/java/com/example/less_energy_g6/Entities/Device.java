@@ -2,7 +2,7 @@ package com.example.less_energy_g6.Entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Device")
@@ -21,19 +21,19 @@ public class Device {
     private String brand;
 
     @Column(name = "dateCreation", nullable = false)
-    private LocalDate dateCreation;
+    private LocalDateTime dateCreation;
 
-    @Column(name = "dateModification", nullable = false)
-    private LocalDate dateModification;
+    @Column(name = "dateModification", nullable = true)
+    private LocalDateTime dateModification;
 
     @Column(name = "userCreation", nullable = false)
-    private LocalDate userCreation;
+    private int userCreation;
 
     @Column(name = "userModification", nullable = false)
-    private LocalDate userModification;
+    private int userModification;
 
-    @Column(name = "dateDelete", nullable = false)
-    private LocalDate dateDelete;
+    @Column(name = "dateDelete", nullable = true)
+    private LocalDateTime dateDelete;
 
     public int getIdDevice() {
         return idDevice;
@@ -67,43 +67,43 @@ public class Device {
         this.brand = brand;
     }
 
-    public LocalDate getDateCreation() {
+    public LocalDateTime getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(LocalDate dateCreation) {
+    public void setDateCreation(LocalDateTime dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    public LocalDate getDateModification() {
+    public LocalDateTime getDateModification() {
         return dateModification;
     }
 
-    public void setDateModification(LocalDate dateModification) {
+    public void setDateModification(LocalDateTime dateModification) {
         this.dateModification = dateModification;
     }
 
-    public LocalDate getUserCreation() {
+    public int getUserCreation() {
         return userCreation;
     }
 
-    public void setUserCreation(LocalDate userCreation) {
+    public void setUserCreation(int userCreation) {
         this.userCreation = userCreation;
     }
 
-    public LocalDate getUserModification() {
+    public int getUserModification() {
         return userModification;
     }
 
-    public void setUserModification(LocalDate userModification) {
+    public void setUserModification(int userModification) {
         this.userModification = userModification;
     }
 
-    public LocalDate getDateDelete() {
+    public LocalDateTime getDateDelete() {
         return dateDelete;
     }
 
-    public void setDateDelete(LocalDate dateDelete) {
+    public void setDateDelete(LocalDateTime dateDelete) {
         this.dateDelete = dateDelete;
     }
 }

@@ -2,7 +2,7 @@ package com.example.less_energy_g6.Entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table (name = "Alert")
@@ -15,10 +15,10 @@ public class Alert {
     private String description;
 
     @Column(name = "dateCreation", nullable = false)
-    private LocalDate dateCreation;
+    private LocalDateTime dateCreation;
 
-    @Column(name = "dateModification", nullable = false)
-    private LocalDate dateModification;
+    @Column(name = "dateModification", nullable = true)
+    private LocalDateTime dateModification;
 
     @Column(name = "userCreation", nullable = false)
     private int userCreation;
@@ -26,8 +26,8 @@ public class Alert {
     @Column(name = "userModification", nullable = false)
     private int userModification;
 
-    @Column(name = "userDelete", nullable = false)
-    private LocalDate userDelete;
+    @Column(name = "dateDelete", nullable = true)
+    private LocalDateTime dateDelete;
 
     @ManyToOne
     @JoinColumn (name = "idUser")
@@ -53,19 +53,19 @@ public class Alert {
         this.description = description;
     }
 
-    public LocalDate getDateCreation() {
+    public LocalDateTime getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(LocalDate dateCreation) {
+    public void setDateCreation(LocalDateTime dateCreation) {
         this.dateCreation = dateCreation;
     }
 
-    public LocalDate getDateModification() {
+    public LocalDateTime getDateModification() {
         return dateModification;
     }
 
-    public void setDateModification(LocalDate dateModification) {
+    public void setDateModification(LocalDateTime dateModification) {
         this.dateModification = dateModification;
     }
 
@@ -85,12 +85,12 @@ public class Alert {
         this.userModification = userModification;
     }
 
-    public LocalDate getUserDelete() {
-        return userDelete;
+    public LocalDateTime getDateDelete() {
+        return dateDelete;
     }
 
-    public void setUserDelete(LocalDate userDelete) {
-        this.userDelete = userDelete;
+    public void setDateDelete(LocalDateTime dateDelete) {
+        this.dateDelete = dateDelete;
     }
 
     public User getUser() {

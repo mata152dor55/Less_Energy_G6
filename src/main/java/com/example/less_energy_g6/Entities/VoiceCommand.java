@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "VoiceComamnd")
+@Table (name = "VoiceCommand")
 public class VoiceCommand {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

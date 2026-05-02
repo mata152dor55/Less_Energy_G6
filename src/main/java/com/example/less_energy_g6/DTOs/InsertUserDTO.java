@@ -2,7 +2,7 @@ package com.example.less_energy_g6.DTOs;
 
 public class InsertUserDTO {
     private String email;
-    private String password;
+    private String passwordHash;
     private String nameUser;
 
     public String getEmail() {
@@ -13,12 +13,12 @@ public class InsertUserDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public String getNameUser() {
