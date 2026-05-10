@@ -37,6 +37,8 @@ public class JwtAuthenticationController {
 
     private void authenticate(String username, String password) throws Exception {
         try {
+
+            //Los prints solo fueron para debugear y encontrar un error
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
             System.out.println("✅ AUTENTICACIÓN EXITOSA EN EL MANAGER");
         } catch (DisabledException e) {
